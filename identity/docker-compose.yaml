@@ -119,6 +119,7 @@ services:
       - mysql
       - registry
       - message-broker
+      - identity
 
   portal:
     image: repo.backbase.com/backbase-docker-releases/portal:CXS-6.2.3.1-latest
@@ -138,6 +139,7 @@ services:
       - registry
       - contentservices
       - message-broker
+      - identity
 
   provisioning:
     image: repo.backbase.com/backbase-docker-releases/provisioning:CXS-6.2.3.1-latest
@@ -153,21 +155,19 @@ services:
       - mysql
       - registry
       - message-broker
+      - identity
 
-  # statics:
-  #   image: torrespro/import-statics-demo-sh:latest
-  #   links:
-  #     - edge
-  #     - portal
-  #     - contentservices
-  #     - provisioning
-  #   environment:
-  #     REPO_USERNAME: yourUsername
-  #     REPO_PASSWORD: yourPassword
-  #     CX6_VERSION: '6.2.2' 
-  #     CX_MANAGER_VERSION: b3554
-  #     IDENTITY: 'YES'
-  #   command: sh -c "dockerize -wait http://edge:8080/api/provisioning/actuator/health/liveness -timeout 300s -wait-retry-interval 30s /import-statics"
+  statics:
+    image: docker.io/torrespro/import-statics:latest
+    volumes:
+      - ./job.yaml:/import/job.yaml
+    links:
+      - edge
+      - portal
+      - contentservices
+      - provisioning
+      - identity
+    command: sh -c "dockerize -wait http://edge:8080/api/provisioning/actuator/health/liveness -timeout 300s -wait-retry-interval 30s ./import-statics.py"
 
 volumes:
   demo_mysql_data:

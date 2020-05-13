@@ -1,0 +1,30 @@
+check:
+  enabled: false
+  targets:
+  - name: Authentication
+    url: http://edge:8080/api/cosas/health/ready
+  - name: 8080/api/provisioning
+    url: http://edge:8080/api/cosas/actuator/health/readiness
+imports:
+- repository: https://repo.backbase.com
+  apikey: 
+  username: trainingbe2020wk20
+  password: nEN&oK6zWZqO
+  statics:
+  - /backbase-6-release/com/backbase/tools/cx/cx6-import-tool-cli/6.2.3.1-b58/cx6-import-tool-cli-6.2.3.1-b58.jar
+  # - /backbase-6-release/com/backbase/cxp/editorial-collection/b3554/editorial-collection-b3554.zip
+  - /expert-release-local/com/backbase/web-sdk/collection/collection-bb-web-sdk/1.11.0/collection-bb-web-sdk-1.11.0.zip
+  - /backbase-6-release/com/backbase/cxp/experience-manager/b3554/experience-manager-b3554.zip
+  - /expert-release-local/com/backbase/cxp/collection-approvals/1.1.1/collection-approvals-1.1.1-page.zip
+  - /expert-release-local/com/backbase/cxp/collection-approvals/1.1.1/collection-approvals-1.1.1-portal.zip
+target:
+  identity-scope: openid
+  identity-grant-type: password
+  identity-client-id: bb-tooling-client
+  identity-realm: backbase
+  auth-url: http://identity:8080
+  context: http://edge:8080/api/provisioning
+  password: admin
+  retry-back-off-period: 2000
+  retry-max-attempts: 200
+  username: admin
