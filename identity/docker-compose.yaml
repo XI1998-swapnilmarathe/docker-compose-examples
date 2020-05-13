@@ -71,6 +71,7 @@ services:
       - "7779:8080"
     environment:
       <<: *common-variables
+      BACKBASE_OIDCTOKENCONVERTER_WHITELISTEDDOMAINS_0_ISSUERHOST: "identity"
     links:
       - registry
 

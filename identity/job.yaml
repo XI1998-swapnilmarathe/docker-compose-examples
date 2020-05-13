@@ -2,17 +2,17 @@ check:
   enabled: false
   targets:
   - name: Authentication
-    url: http://edge:8080/api/cosas/health/ready
+    url: http://identity:8080/health/ready
   - name: 8080/api/provisioning
-    url: http://edge:8080/api/cosas/actuator/health/readiness
+    url: http://edge:8080/api/provisioning/actuator/health/readiness
 imports:
 - repository: https://repo.backbase.com
   apikey: 
-  username: trainingbe2020wk20
-  password: nEN&oK6zWZqO
+  username: username
+  password: password
   statics:
   - /backbase-6-release/com/backbase/tools/cx/cx6-import-tool-cli/6.2.3.1-b58/cx6-import-tool-cli-6.2.3.1-b58.jar
-  # - /backbase-6-release/com/backbase/cxp/editorial-collection/b3554/editorial-collection-b3554.zip
+  - /backbase-6-release/com/backbase/cxp/editorial-collection/b3554/editorial-collection-b3554.zip
   - /expert-release-local/com/backbase/web-sdk/collection/collection-bb-web-sdk/1.11.0/collection-bb-web-sdk-1.11.0.zip
   - /backbase-6-release/com/backbase/cxp/experience-manager/b3554/experience-manager-b3554.zip
   - /expert-release-local/com/backbase/cxp/collection-approvals/1.1.1/collection-approvals-1.1.1-page.zip
