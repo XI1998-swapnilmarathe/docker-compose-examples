@@ -135,6 +135,13 @@ services:
       portal.resource-location.path: /tmp
       spring.datasource.url: jdbc:mysql://mysql:3306/portal?cacheServerConfiguration=true&createDatabaseIfNotExist=true
       spring.jpa.properties.hibernate.session_factory_name_is_jndi: 'false'
+      # portal.dynamic.url.identifier:  @@
+      portal.experiences.configuration.authUrl: http://localhost:9090/auth
+      portal.experiences.configuration.clientId:  bb-web-client
+      portal.experiences.configuration.kind: hybrid
+      portal.experiences.configuration.realm: backbase
+      portal.experiences.configuration.response_type: code id_token token
+      portal.experiences.configuration.scope: openid
     links:
       - mysql
       - registry

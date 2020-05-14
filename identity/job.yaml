@@ -8,8 +8,8 @@ check:
 imports:
 - repository: https://repo.backbase.com
   apikey: 
-  username: username
-  password: password
+  username: trainingbe2020wk20
+  password: nEN&oK6zWZqO
   statics:
   - /backbase-6-release/com/backbase/tools/cx/cx6-import-tool-cli/6.2.3.1-b58/cx6-import-tool-cli-6.2.3.1-b58.jar
   - /backbase-6-release/com/backbase/cxp/editorial-collection/b3554/editorial-collection-b3554.zip
